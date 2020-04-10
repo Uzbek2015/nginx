@@ -53,6 +53,6 @@ pipeline {
                 sudo pip3 uninstall docker -y
                 sudo pip3 uninstall molecule -y
             """
-        }
-    }
+        } // always
+    } // post
 } // pipeline
