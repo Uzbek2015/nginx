@@ -3,6 +3,14 @@ pipeline {
         label "generic"
     } // agent
     stages {
+        stage("set up") {
+            steps {
+                sh """ 
+                    sudo pip3 install molecule
+                    sudo pip3 install docker
+                """
+            } // steps
+        } // stage
         stage("Create docker image for testing") {
             steps {
                 sh """ 
@@ -39,4 +47,12 @@ pipeline {
             } // steps
         } // stage
     } // stages
+    post {
+        always {
+            sh """ 
+                sudo pip3 uninstall docker -y
+                sudo pip3 uninstall molecule -y
+            """
+        }
+    }
 } // pipeline
