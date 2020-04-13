@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label "generic"
+        label "generic-2"
     } // agent
     stages {
         stage("set up") {
