@@ -13,7 +13,9 @@ pipeline {
         } // stage
         stage("Create docker image for testing") {
             steps {
-                sh """ 
+                sh """
+		    export LANG=en_US.utf8
+		    export LC_ALL=en_US.utf8 
                     python3 -m molecule create
                 """
             } // steps
